@@ -1,6 +1,7 @@
 const inputText = document.querySelector('#add-book input');
 const link = document.querySelector('.button');
 const ul = document.querySelector('ul');
+const checkBox = document.querySelector('#hide input');
 
 const spanDelete = `<span class="delete">حذف</span>`;
 
@@ -30,6 +31,17 @@ ul.addEventListener('click', function (e) {
         removeFromLocalStorage(e.target.parentElement.children[0].textContent);
     }
 })
+
+//دکمه مخفی کردن کارها
+checkBox.addEventListener('change',function(e){
+    if(checkBox.checked===true){
+        ul.style.display = 'none';
+    }
+    else{
+        ul.style.display = 'block';
+    }
+})
+
 
 //حذف نشدن مقادیر بعد از رفرش صفحه
 document.addEventListener('DOMContentLoaded', function (e) {
