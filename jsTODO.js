@@ -96,6 +96,7 @@ function removeFromLocalStorage(task) {
         if (tasks[i] === task) {
             tasks.split(i, 1);
         }
+        
     }
 
 
