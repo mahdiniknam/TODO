@@ -4,6 +4,7 @@ const ul = document.querySelector('ul');
 
 const spanDelete = `<span class="delete">حذف</span>`;
 
+
 link.addEventListener('click', function (e) {
     const spanName = document.createElement('sapn');
     spanName.className = 'name';
@@ -26,20 +27,9 @@ link.addEventListener('click', function (e) {
 ul.addEventListener('click', function (e) {
     if (e.target.className === 'delete') {
         e.target.parentElement.remove();
-
-        removeFromLocalStorage(e.target.parentElement[0].textContent);
-    }
-    else {
-
+        removeFromLocalStorage(e.target.parentElement.children[0].textContent);
     }
 })
-
-
-
-
-
-
-
 
 //حذف نشدن مقادیر بعد از رفرش صفحه
 document.addEventListener('DOMContentLoaded', function (e) {
@@ -54,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
     for (let item of tasks) {
         const spanName = document.createElement('span');
         spanName.className = 'name';
-        spanDelete.textContent = item;
+        spanName.textContent = item;
 
         const li = document.createElement('li');
 
@@ -64,10 +54,6 @@ document.addEventListener('DOMContentLoaded', function (e) {
         ul.appendChild(li);
     }
 })
-
-
-
-
 
 function storeToLocalStorege(task) {
     let tasks;
@@ -81,24 +67,19 @@ function storeToLocalStorege(task) {
     localStorage.setItem('tasks', tasks);
 }
 
-
-
 function removeFromLocalStorage(task) {
     let tasks;
     if (localStorage.getItem('tasks') === null) {
         tasks = [];
-    }
-    else {
+    }else {
         tasks = localStorage.getItem('tasks').split(',');
     }
 
     for (let i = 0; i < tasks.length; i++) {
         if (tasks[i] === task) {
-            tasks.split(i, 1);
+            tasks.splice(i, 1);
         }
-        
     }
-
 
     if (tasks.length === 0) {
         localStorage.clear();
