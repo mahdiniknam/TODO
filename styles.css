@@ -78,7 +78,7 @@ h1, h2{
 
 .delete{
     float: left;
-    background: #9361bf;
+    background:red;
     padding: 6px;
     border-radius: 4px;
     cursor: pointer;
@@ -112,7 +112,7 @@ h1, h2{
 
 #add-book .button{
     border: 1px solid #9361bf;
-    background: #9361bf;
+    background:green;
     padding: 10px 20px;
     font-size: 17px;
     display: inline-block;

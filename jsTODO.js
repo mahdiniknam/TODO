@@ -2,7 +2,7 @@ const inputText = document.querySelector('#add-book input');
 const link = document.querySelector('.button');
 const ul = document.querySelector('ul');
 const checkBox = document.querySelector('#hide input');
-
+const worksearch = document.querySelector('#search-books input');
 const spanDelete = `<span class="delete">حذف</span>`;
 
 
@@ -39,6 +39,16 @@ checkBox.addEventListener('change',function(e){
     }
     else{
         ul.style.display = 'block';
+    }
+})
+
+worksearch.addEventListener('keyup',function(e){
+    for(let work of ul.children){
+        if(work.firstElementChild.textContent.indexOf(worksearch.value)!==-1){
+            work.style.display= 'block';
+        }else{
+            work.style.display = 'none';
+        }
     }
 })
 
@@ -100,3 +110,5 @@ function removeFromLocalStorage(task) {
         localStorage.setItem('tasks', tasks);
     }
 }
+
+
